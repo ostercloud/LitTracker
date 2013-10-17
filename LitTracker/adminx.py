@@ -9,7 +9,6 @@ class MainDashboard(object):
         [
             {"type": "qbutton", "title": "Quick Start", "btns":
                 [
-                    {'title': "JW.ORG", 'url': "http://www.jw.org/apps/E_YBTVr1"},
                     {'title': "Google", 'url': "http://www.google.com"}
                 ]},
         ],
