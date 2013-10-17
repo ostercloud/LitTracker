@@ -1,17 +1,40 @@
 import xadmin
 from xadmin import views
-from xadmin.layout import Main, TabHolder, Tab, Fieldset, Row, Col, AppendedText, Side
-from xadmin.plugins.inline import Inline
-from xadmin.plugins.batch import BatchChangeAction
+from models import *
 from LitTracker.models import *
 
 
 class MainDashboard(object):
     widgets = [
+        [
+            {"type": "qbutton", "title": "Quick Start", "btns":
+                [
+                    {'title': "JW.ORG", 'url': "http://www.jw.org/apps/E_YBTVr1"},
+                    {'title': "Google", 'url': "http://www.google.com"}
+                ]},
+        ],
     ]
 
-
 xadmin.site.register(views.website.IndexView, MainDashboard)
+
+
+class BaseSetting(object):
+    enable_themes = True
+    use_bootswatch = True
+
+
+xadmin.site.register(views.BaseAdminView, BaseSetting)
+
+
+class GolbeSetting(object):
+    globe_models_icon = {
+        Publisher: 'group',
+        Item: 'book',
+        InStock: 'inbox',
+        Order: 'edit'
+    }
+
+xadmin.site.register(views.CommAdminView, GolbeSetting)
 
 class BaseItemAdmin(object):
     fields = ('item', 'code')
