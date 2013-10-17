@@ -22,7 +22,7 @@ class Order(models.Model):
     item = models.ForeignKey(Item)
     ordered_by = models.ForeignKey(Publisher)
     order_date = models.DateTimeField('Date Ordered')
-    received_date = models.DateTimeField('Date Received', null=True)
+    received_date = models.DateTimeField('Date Received', null=True, blank=True)
 
     def __unicode__(self):
         return unicode(self.item)
