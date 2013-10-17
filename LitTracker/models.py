@@ -52,4 +52,4 @@ class InStock(models.Model):
         verbose_name = u"In Stock"
         verbose_name_plural = verbose_name
 
-    pendingitems = Order.objects.exclude(received_date__null=False).filter(item=item).order_by('order_date')[0:1].get()
+    pendingitems = Order.objects.exclude(received_date__isnull=False).filter(item=item).order_by('order_date')[0:1].get()
