@@ -14,21 +14,21 @@ class Item(models.Model):
         verbose_name_plural = verbose_name
 
 
-class Publisher(models.Model):
+class Patron(models.Model):
     name = models.CharField(max_length=200)
 
     def __unicode__(self):
         return unicode(self.name)
 
     class Meta:
-        verbose_name = u"Publisher"
+        verbose_name = u"Patron"
         verbose_name_plural = verbose_name
 
 
 
 class Order(models.Model):
     item = models.ForeignKey(Item)
-    ordered_by = models.ForeignKey(Publisher)
+    ordered_by = models.ForeignKey(Patron)
     order_date = models.DateTimeField('Date Ordered')
     received_date = models.DateTimeField('Date Received', null=True, blank=True)
 
@@ -43,7 +43,7 @@ class Order(models.Model):
 
 class InStock(models.Model):
     item = models.ForeignKey(Item)
-    publisher = models.CharField(max_length=200, blank=True)
+    patron = models.CharField(max_length=200, blank=True)
 
     def __unicode__(self):
         return unicode(self.item)

@@ -33,7 +33,7 @@ xadmin.site.register(views.BaseAdminView, BaseSetting)
 
 class GolbeSetting(object):
     globe_models_icon = {
-        Publisher: 'group',
+        Patron: 'group',
         Item: 'book',
         InStock: 'inbox',
         Order: 'edit'
@@ -52,7 +52,7 @@ class BaseItemAdmin(object):
 
 
 
-class BasePublisherAdmin(object):
+class BasePatronAdmin(object):
     fields = ('name',)
     list_display = ('name',)
     list_filter = ('name',)
@@ -60,9 +60,9 @@ class BasePublisherAdmin(object):
 
 
 class BaseInStockAdmin(object):
-    fields = ('item', 'publisher')
-    list_display = ('item', 'publisher')
-    list_filter = ('item', 'publisher')
+    fields = ('item', 'patron')
+    list_display = ('item', 'patron')
+    list_filter = ('item', 'patron')
 
 
 
@@ -93,7 +93,7 @@ class OrderAdmin(object):
 
 
 xadmin.site.register(Item, BaseItemAdmin)
-xadmin.site.register(Publisher, BasePublisherAdmin)
+xadmin.site.register(Patron, BasePatronAdmin)
 xadmin.site.register(InStock, BaseInStockAdmin)
 xadmin.site.register(Order, OrderAdmin)
 
